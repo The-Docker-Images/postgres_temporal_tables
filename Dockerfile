@@ -1,6 +1,6 @@
-FROM postgres:9.5
+FROM postgres:9.5-alpine
 
-RUN apt-get update
-RUN apt-get install -y libpq-dev 
-RUN apt-get install -y postgresql-server-dev-all pgxnclient gcc
+RUN apk update
+RUN apk add libpq-dev postgresql-dev postgresql-contrib gcc python
+RUN pip install pgxnclient
 RUN pgxn install temporal_tables
