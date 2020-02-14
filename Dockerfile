@@ -1,6 +1,7 @@
-FROM postgres:9.5-alpine
+FROM ubuntu:18.04
 
-RUN apk update
-RUN apk add libpq postgresql-dev postgresql-contrib gcc python py-pip make
-RUN pip install pgxnclient
-RUN pgxn install temporal_tables
+RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get install -y postgresql-10 
+RUN apt-get install -y libpq-dev postgresql-server-dev-all pgxnclient gcc ca-certificates
+RUN pgxn install temporal_tables 
